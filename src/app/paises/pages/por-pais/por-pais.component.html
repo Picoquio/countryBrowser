@@ -23,7 +23,7 @@
 
 <div class="row">
     <div class="col">
-        <table class="table table-hover">
+        <table *ngIf="paises.length > 0" class="table table-hover">
             <thead>
                 <tr>
                     <th> # </th>
@@ -34,13 +34,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>bandera</td>
-                    <td>nombre</td>
-                    <td>4341423</td>
+                <tr *ngFor="let pais of paises; let i = index">
+                    <td>{{i + 1}}</td>
+                    <td><img class="small-flag" src="{{pais.flags.png}}" alt=""></td>
+                    <td>{{pais.name.common}}</td>
+                    <td>{{pais.population | number}}</td>
                     <td>
-                        <a href="/pais/cri">Ver... (este anchor tag se va a cambiar por un routelink)</a> 
+                        <a [routerLink]="[ '/pais', pais.cca2 ]">Ver</a>
                     </td>
                 </tr>
             </tbody>
