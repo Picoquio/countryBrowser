@@ -7,16 +7,27 @@ import { PaisesService } from '../../services/paises.service';
 })
 export class PorPaisComponent {
 
-  termino: string = ''
+  termino: string = '';
+  hayError: boolean = false;
   
-  constructor (private paisesServie : PaisesService) {}
+  constructor (private paisesService : PaisesService) {}
 
   buscar () {
+    this.hayError = false;
     console.log(this.termino);
 
-    this.paisesServie.buscarPais(this.termino)
-      .subscribe(resp => console.log(resp)
-      )
+    this.paisesService.buscarPais(this.termino)
+      .subscribe({
+        next: (resp) => {
+          console.log(resp);
+        },
+        error: (err) => {
+          console.log('Error');
+          console.info(err)
+          this.hayError = true;
+          
+        }
+      })
     
   }
 
