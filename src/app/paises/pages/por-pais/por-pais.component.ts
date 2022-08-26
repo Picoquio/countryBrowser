@@ -16,9 +16,10 @@ export class PorPaisComponent {
   
   constructor (private paisesService : PaisesService) {}
 
-  buscar () {
+  buscar ( termino: string) {
     this.hayError = false;
-    console.log(this.termino);
+    this.termino = termino /* el this.termino es igual al temrino que recibo como argumento, porque
+    es el que viene del input*/
 
     this.paisesService.buscarPais(this.termino)
       .subscribe({
