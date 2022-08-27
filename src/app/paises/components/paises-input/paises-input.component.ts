@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
 @Component({
@@ -13,6 +13,10 @@ export class PaisesInputComponent implements OnInit {
 
   //ceamos el evento onDebounce
   @Output() onDebounce: EventEmitter<string> = new EventEmitter()
+
+  // recibimos el placeholder desde por-capital.component.html
+  //luego lo usamos en la contraparte HTML de este archivo.
+  @Input() placeholder: string = ''
 
   //creamos un observable "debouncer"
   debouncer: Subject<string> = new Subject()

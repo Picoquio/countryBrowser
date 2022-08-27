@@ -1,1 +1,31 @@
-<p>por-capital works!</p>
+<h2>Por país</h2>
+<hr>
+
+<div class="row">
+    <!-- la poronga del placeholder significa que estamos mandando a paises input una propiedad
+    llamada placeholder -->
+    <div class="col">
+        <app-paises-input
+        
+        (onEnter)="buscar( $event )"
+
+       
+        placeholder="Buscar capital" 
+        
+        
+        ></app-paises-input>
+    </div>
+</div>
+
+<hr>
+
+<div *ngIf="hayError"
+      class="alert alert-danger">
+    No se encontró nada con el término "{{termino}}"
+</div>
+
+<div class="row">
+    <div class="col">
+        <app-paises-tabla [paises]="paises"></app-paises-tabla>
+    </div>
+</div>
