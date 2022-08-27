@@ -12,6 +12,8 @@ export class PaisesService {
 
   constructor(private http: HttpClient) { }
 
+  
+  // hacep eticiones basandose en un término, devuelve una lista de países.
   buscarPais(termino: string): Observable<Country[]> {
 
     const url = `${this.apiUrl}/name/${termino}`
@@ -20,12 +22,21 @@ export class PaisesService {
   }
 
 
-
+//hace petición basandose en un término, y devuelve una lista de paises basandose en la capital.
   buscarCapital(termino: string): Observable<Country[]> {
 
     const url = `${this.apiUrl}/capital/${termino}`
 
     return this.http.get<Country[]>(url)
+  }
+
+  /*hace petición basandose en un id de país en particular. acá se retorna un solo país, 
+  por eso country sin [] */
+  buscarPorCodigo(id: string): Observable<Country> {
+
+    const url = `${this.apiUrl}/alpha/${id}`
+
+    return this.http.get<Country>(url)
   }
 
 

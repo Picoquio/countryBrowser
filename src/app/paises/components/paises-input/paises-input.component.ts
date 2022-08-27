@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
+// <!-- cajita donde se ingresa el texto -->
+
 @Component({
   selector: 'app-paises-input',
   templateUrl: './paises-input.component.html',
