@@ -1,27 +1,22 @@
-# PaisesApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+# Country Browser
 
-## Development server
+ With this application you can look up for countries and some info about them.
+ 
+ The sidebar in the left lets you choose between three different types of search:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+ 1) *Buscar pais* lets you search for countries given their names. It renders a table with a given amount of countries that match the user's input.
+ 2) *Por región* lets displays a list of buttons, where each represents a continent. Once any given continent is clicked, the application renders a table with a list of all the countries that belong to such continent.
+ 3) *Por capital* lets you search for countries given their capital city. It renders a table with a given amount of countries that match the user's input.
 
-## Code scaffolding
+ 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ It also comes with search suggestions in items 1) and 3).
 
-## Build
+ All data is provided by REST Countries's API.
+ https://restcountries.com/
+ 
+ Everything was made with Angular.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Shoutout to Fernando Herrera
+https://fernando-herrera.com/
