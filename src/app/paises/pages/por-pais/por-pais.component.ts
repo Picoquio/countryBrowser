@@ -5,6 +5,11 @@ import { Country } from '../../interfaces/paises.interface';
 @Component({
   selector: 'app-por-pais',
   templateUrl: './por-pais.component.html',
+  styles: [`
+    li {
+      cursor: pointer
+    }
+  `]
 })
 export class PorPaisComponent {
 
@@ -13,6 +18,7 @@ export class PorPaisComponent {
 
 
   paises: Country[] = []
+  paisesSugeridos: Country[] = []
 
   constructor(private paisesService: PaisesService) { }
 
@@ -39,6 +45,11 @@ export class PorPaisComponent {
   sugerencias(termino: string) {
     this.hayError = false;
     //TODO: crear sugerencias.
+    this.paisesService.buscarPais(termino)
+      .subscribe({
+        next: paises => this.paisesSugeridos = paises.splice(0,4),
+        error: (err) => this.paisesSugeridos = []
+      })
 
   }
 

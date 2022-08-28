@@ -1,5 +1,5 @@
 <div class="animate__animated animate__fadeIn animate__faster">
-<h2>Por país</h2>
+<h2>Por capital</h2>
 <hr>
 
 <div class="row">
@@ -10,13 +10,26 @@
         
         (onEnter)="buscar( $event )"
 
-       
+        (onDebounce)="sugerencias( $event )"
         placeholder="Buscar capital" 
         
         
         ></app-paises-input>
     </div>
 </div>
+
+<!-- Sugerencias -->
+<ul class="list-group">
+    <li *ngFor="let pais of paisesSugeridos"
+        class="list-group-item list-group-item-action">
+        <a  class="nav-link"
+            [routerLink]="['/pais', pais.cca2]">
+            {{pais.capital}}, {{pais.name.common}}
+        </a>
+        
+        
+    </li>
+</ul>
 
 <hr>
 </div>

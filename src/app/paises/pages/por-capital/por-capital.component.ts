@@ -13,6 +13,7 @@ export class PorCapitalComponent {
 
 
   paises: Country[] = []
+  paisesSugeridos: Country[] = []
 
   constructor(private paisesService: PaisesService) { }
 
@@ -34,6 +35,17 @@ export class PorCapitalComponent {
           this.paises = []
         }
       })
+  }
+
+  sugerencias(termino: string) {
+    this.hayError = false;
+    //TODO: crear sugerencias.
+    this.paisesService.buscarCapital(termino)
+      .subscribe({
+        next: paises => this.paisesSugeridos = paises.splice(0,4),
+        error: (err) => this.paisesSugeridos = []
+      })
+
   }
 
 }

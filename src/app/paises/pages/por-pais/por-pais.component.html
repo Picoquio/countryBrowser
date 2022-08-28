@@ -2,6 +2,7 @@
 <h2>Por país</h2>
 <hr>
 
+<!-- Buscador -->
 <div class="row">
     <div class="col">
         <app-paises-input
@@ -14,6 +15,19 @@
     </div>
 </div>
 
+<!-- Sugerencias -->
+<ul class="list-group">
+    <li *ngFor="let pais of paisesSugeridos"
+        class="list-group-item list-group-item-action">
+        <a  class="nav-link"
+            [routerLink]="['/pais', pais.cca2]">
+            {{pais.name.common}}
+        </a>
+        
+        
+    </li>
+</ul>
+
 <hr>
 </div>
 
@@ -22,6 +36,7 @@
     No se encontró nada con el término "{{termino}}"
 </div>
 
+<!-- Tabla -->
 <div class="row">
     <div class="col">
         <app-paises-tabla [paises]="paises"></app-paises-tabla>
